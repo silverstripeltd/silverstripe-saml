@@ -99,9 +99,10 @@ class SAMLController extends Controller
              */
 
             $guid = $this->extractNameId($auth);
-            $this->extend('updateGuid', $guid);
 
             $claims = $this->mapAttributes($auth, $guid, $uniqueErrorId);
+
+            $this->extend('updateGuid', $guid);
 
             $request = $this->getRequest();
             $this->extend('updateRequest', $request);
